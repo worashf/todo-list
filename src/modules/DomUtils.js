@@ -18,6 +18,9 @@ const deleteTodo = (element) => {
 
   todoList.deleteTodo(parseInt(index, 10));
   parent.remove();
+  todoListWrapper.childNodes.forEach((todo, i) => {
+    todo.id = i + 1;
+  });
 };
 const renderTodoHtml = (todo) => {
   const { index, description } = todo;
