@@ -1,10 +1,6 @@
 import Todo from './Todo.js';
 
 class TodoList {
-  constructor() {
-
-  }
-
  static getStoredTodos =() => {
    let todos;
    if (localStorage.getItem('todos') === null) {
@@ -26,19 +22,20 @@ class TodoList {
  }
 
 sortTodos =() => {
-  let newTodo;
-  const sortedTodos = TodoList.getStoredTodos().sort((a, b) => a.index - b.index);
-  console.log(sortedTodos);
-  //   sortedTodos = sortedTodos.map((todo,index)=>{
-  //     newTodo = new Todo(index, todo.description, todo.completed);
-  // })
+  let sortedTodos = TodoList.getStoredTodos().sort((a, b) => a.index - b.index);
+
+  sortedTodos = sortedTodos.map((todo, i) => ({
+    index: i + 1,
+    description: todo.description,
+    completed: todo.completed,
+  }));
   return sortedTodos;
 }
 
   addNewTodo =(description) => {
     const index = TodoList.getStoredTodos().length;
     const completed = false;
-    const todo = new Todo(index+1, description, completed);
+    const todo = new Todo(index + 1, description, completed);
     this.storeTodos(todo);
 
     return todo;
@@ -46,13 +43,12 @@ sortTodos =() => {
 
 deleteTodo =(num) => {
   const todos = TodoList.getStoredTodos();
-  console.log(todos)
+
   const filteredTodo = todos.filter((todo) => todo.index !== num);
-  console.log(num, 'index');
 
   localStorage.setItem('todos', JSON.stringify(filteredTodo));
-
-
+  const sortedTodo = this.sortTodos();
+  localStorage.setItem('todos', JSON.stringify(sortedTodo));
 }
 
 editDescription=(index, description) => {
@@ -60,7 +56,7 @@ editDescription=(index, description) => {
 
   const todoItem = todos.find((todo) => todo.index === index);
   todoItem.description = description;
-  todos[index-1] = todoItem;
+  todos[index - 1] = todoItem;
   this.updateStorage(todos);
 }
 }
