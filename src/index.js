@@ -1,7 +1,7 @@
-import '@fortawesome/fontawesome-free/js/all';
+import '@fortawesome/fontawesome-free/js/all.js';
 import './style.css';
-import { appendAllTodos, saveNewTodo } from './modules/DomUtils';
-import TodoList from './modules/TodoList';
+import { appendAllTodos, saveNewTodo } from './modules/DomUtils.js';
+import TodoList from './modules/TodoList.js';
 import { addForm, todoInput } from './modules/Selector.js';
 
 window.onload = () => {
