@@ -72,23 +72,26 @@ body {
   color: gray;
   justify-self: end;
 }
-.description{
+
+.description {
   border: 0;
   padding: 0.5rem;
 }
 
-input.description:focus{
-
+input.description:focus {
   outline: none;
 }
 
-.delete-btn{
+.delete-btn {
   justify-self: end;
-
+  cursor: pointer;
+  margin-right: 1rem;
 }
-.delete-icon{
+
+.delete-icon {
   color: red;
 }
-.edit{
+
+.edit {
   background-color: #e8e8f3;
 }
