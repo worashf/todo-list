@@ -62,7 +62,7 @@ const renderTodoHtml = (todo) => {
     descriptionInput.readOnly = true;
     descriptionInput.classList.remove('edit');
     descriptionInput.parentElement.classList.remove('edit');
-    descriptionInput.parentElement.childNodes[2].style.display = 'block';
+    descriptionInput.parentElement.childNodes[2].style.opacity = 1;
     deleteBtn.style.opacity = 0;
   });
   descriptionInput.addEventListener('keypress', (e) => {
