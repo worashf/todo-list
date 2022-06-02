@@ -35,7 +35,7 @@ body {
   border-right: 0;
   width: 98%;
   padding: 0.5rem;
-  margin-bottom: 0;
+  margin-bottom: 0.4rem;
 }
 
 #todo-input::placeholder {
@@ -54,7 +54,7 @@ body {
   border-bottom: 1px solid gray;
   padding: 0;
   display: grid;
-  grid-template-columns: 5% 85% 10%;
+  grid-template-columns: 5% 85% 10% 5%;
   align-items: center;
 }
 
@@ -71,4 +71,27 @@ body {
 .see-icon {
   color: gray;
   justify-self: end;
+}
+
+.description {
+  border: 0;
+  padding: 0.5rem;
+}
+
+input.description:focus {
+  outline: none;
+}
+
+.delete-btn {
+  justify-self: end;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.delete-icon {
+  color: red;
+}
+
+.edit {
+  background-color: #e8e8f3;
 }
