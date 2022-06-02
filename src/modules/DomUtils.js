@@ -5,31 +5,28 @@ const todo_list = new TodoList();
 
 const editTodo = (element, e) => {
   e.preventDefault();
-  const newDescription = element.value;
-  const index = element.parentElement.id;
-  todo_list.editDescription(parseInt(index) - 1, newDescription);
+  const newDescription = e.target.value;
+  const index = e.target.parentElement.id;
+  console.log(e.target.parentElement)
+  todo_list.editDescription(parseInt(index), newDescription);
   element.classList.remove('edit');
   element.parentElement.classList.remove('edit');
 };
-const deleteTodo = (element) => {
-  const indexArray = [];
-  const parent = element.parentElement;
-  const todoWrapper = element.parentElement.parentElement;
-  todoWrapper.childNodes.forEach((item, i) => {
-    item.id = i;
-    indexArray.push(i);
-  });
+const deleteTodo = (element,e) => {
+  e.preventDefault();
 
-  const index = element.parentElement.id;
-  console.log(element.parentElement);
-  todo_list.deleteTodo(parseInt(index), indexArray);
+  const parent = element.parentElement;
+
+  const index = e.target.parentElement.id;
+
+  todo_list.deleteTodo(parseInt(index));
   parent.remove();
 };
 const renderTodoHtml = (todo) => {
   const { index, description } = todo;
   const li = document.createElement('li');
   li.classList.add('todo-item');
-  li.setAttribute('id', `${index + 1}`);
+  li.setAttribute('id', `${index}`);
 
   const statusIcon = document.createElement('input');
   statusIcon.setAttribute('type', 'checkbox');
@@ -82,8 +79,9 @@ const renderTodoHtml = (todo) => {
       editTodo(descriptionInput, e);
     }
   });
-  deleteBtn.addEventListener('click', () => {
-    deleteTodo(deleteBtn);
+  deleteBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    deleteTodo(deleteBtn,e);
   });
   li.appendChild(statusIcon);
   li.appendChild(descriptionInput);
