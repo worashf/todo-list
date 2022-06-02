@@ -22,14 +22,22 @@ class TodoList {
  }
 
 sortTodos =() => {
-  let sortedTodos = TodoList.getStoredTodos().sort((a, b) => a.index - b.index);
+  const todos = TodoList.getStoredTodos();
 
-  sortedTodos = sortedTodos.map((todo, i) => ({
+  if (todos.length === null) {
+    return [];
+  }
+
+  const sortedTodos = todos.sort((a, b) => a.index - b.index);
+
+  const final = sortedTodos.map((todo, i) => ({
+
     index: i + 1,
     description: todo.description,
     completed: todo.completed,
   }));
-  return sortedTodos;
+
+  return final;
 }
 
   addNewTodo =(description) => {
