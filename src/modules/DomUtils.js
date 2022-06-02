@@ -1,25 +1,22 @@
 import { todoListWrapper } from './Selector.js';
 import TodoList from './TodoList.js';
 
-const todo_list = new TodoList();
+const todoList = new TodoList();
 
 const editTodo = (element, e) => {
   e.preventDefault();
   const newDescription = e.target.value;
   const index = e.target.parentElement.id;
-  console.log(e.target.parentElement)
-  todo_list.editDescription(parseInt(index), newDescription);
+  todoList.editDescription(parseInt(index, 10), newDescription);
   element.classList.remove('edit');
   element.parentElement.classList.remove('edit');
 };
-const deleteTodo = (element,e) => {
-  e.preventDefault();
-
+const deleteTodo = (element) => {
   const parent = element.parentElement;
 
-  const index = e.target.parentElement.id;
+  const index = element.parentElement.id;
 
-  todo_list.deleteTodo(parseInt(index));
+  todoList.deleteTodo(parseInt(index, 10));
   parent.remove();
 };
 const renderTodoHtml = (todo) => {
@@ -47,6 +44,7 @@ const renderTodoHtml = (todo) => {
   deleteIcon.setAttribute('class', 'fa fa-trash delete-icon');
   deleteBtn.style.opacity = 0;
   deleteBtn.setAttribute('class', 'delete-btn');
+  deleteBtn.setAttribute('type', 'button');
   deleteBtn.setAttribute('id', `delete-btn-${index}`);
   deleteBtn.appendChild(deleteIcon);
 
@@ -55,7 +53,7 @@ const renderTodoHtml = (todo) => {
     descriptionInput.readOnly = false;
     descriptionInput.classList.add('edit');
     descriptionInput.parentElement.classList.add('edit');
-    descriptionInput.parentElement.childNodes[2].style.display = 'none';
+    descriptionInput.parentElement.childNodes[2].style.opacity = 0;
     deleteBtn.style.opacity = 1;
     deleteBtn.style.justifySelf = 'end';
   });
@@ -74,15 +72,10 @@ const renderTodoHtml = (todo) => {
       descriptionInput.classList.add('edit');
       descriptionInput.parentElement.classList.add('edit');
     } else if (e.code === 'Enter' && li.classList.contains('edit')) {
-      console.log(descriptionInput.value, descriptionInput.parentElement.id);
-
       editTodo(descriptionInput, e);
     }
   });
-  deleteBtn.addEventListener('click', (e) => {
-    e.preventDefault()
-    deleteTodo(deleteBtn,e);
-  });
+  deleteBtn.addEventListener('click', () => deleteTodo(deleteBtn));
   li.appendChild(statusIcon);
   li.appendChild(descriptionInput);
   li.appendChild(detailIcon);
@@ -108,7 +101,7 @@ const appendTodo = (todoElement) => {
 };
 
 const saveNewTodo = (description) => {
-  const todo = todo_list.addNewTodo(description);
+  const todo = todoList.addNewTodo(description);
   const li = renderTodoHtml(todo);
   appendTodo(li);
 };

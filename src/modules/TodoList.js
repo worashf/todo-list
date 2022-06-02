@@ -38,21 +38,21 @@ sortTodos =() => {
   addNewTodo =(description) => {
     const index = TodoList.getStoredTodos().length;
     const completed = false;
-    const todo = new Todo(index, description, completed);
+    const todo = new Todo(index+1, description, completed);
     this.storeTodos(todo);
 
     return todo;
   }
 
-deleteTodo =(index, indexArray) => {
+deleteTodo =(num) => {
   const todos = TodoList.getStoredTodos();
-  const filteredTodo = todos.filter((todo) => todo.index !== index);
-  console.log(index, 'index');
+  console.log(todos)
+  const filteredTodo = todos.filter((todo) => todo.index !== num);
+  console.log(num, 'index');
 
-  console.log(indexArray);
-  this.updateStorage(filteredTodo);
-  const sortedTodos = this.sortTodos();
-  this.updateStorage(sortedTodos);
+  localStorage.setItem('todos', JSON.stringify(filteredTodo));
+
+
 }
 
 editDescription=(index, description) => {
@@ -60,7 +60,7 @@ editDescription=(index, description) => {
 
   const todoItem = todos.find((todo) => todo.index === index);
   todoItem.description = description;
-  todos[index] = todoItem;
+  todos[index-1] = todoItem;
   this.updateStorage(todos);
 }
 }
