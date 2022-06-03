@@ -96,3 +96,7 @@ input.description:focus {
   background-color: #e8e8f3;
 }
 
+.completed {
+  text-decoration: line-through;
+}
+
