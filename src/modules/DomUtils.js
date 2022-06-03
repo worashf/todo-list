@@ -22,6 +22,11 @@ const deleteTodo = (element) => {
     todo.id = i + 1;
   });
 };
+
+const changeTodoStatus = (element) => {
+  element.classList.toggle('completed');
+  return element.classList.contains('completed');
+};
 const renderTodoHtml = (todo) => {
   const { index, description } = todo;
   const li = document.createElement('li');
@@ -78,7 +83,13 @@ const renderTodoHtml = (todo) => {
       editTodo(descriptionInput, e);
     }
   });
+
   deleteBtn.addEventListener('click', () => deleteTodo(deleteBtn));
+
+  statusIcon.addEventListener('change', () => {
+    const index = statusIcon.parentElement.id;
+    todoList.changeTodoStatus(parseInt(index, 10), changeTodoStatus(li));
+  });
   li.appendChild(statusIcon);
   li.appendChild(descriptionInput);
   li.appendChild(detailIcon);
@@ -109,4 +120,13 @@ const saveNewTodo = (description) => {
   appendTodo(li);
 };
 
-export { saveNewTodo, appendAllTodos };
+const removeAllCompleted = () => {
+  todoList.removeCompleted();
+  const completedTodos = document.querySelectorAll('.completed');
+  completedTodos.forEach((todo) => todo.remove());
+  todoListWrapper.childNodes.forEach((todo, i) => {
+    todo.id = i + 1;
+  });
+};
+
+export { saveNewTodo, appendAllTodos, removeAllCompleted };

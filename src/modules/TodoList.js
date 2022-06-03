@@ -67,6 +67,23 @@ editDescription=(index, description) => {
   todos[index - 1] = todoItem;
   this.updateStorage(todos);
 }
+
+changeTodoStatus =(num, status) => {
+  const todos = TodoList.getStoredTodos();
+
+  const todoItem = todos.find((todo) => todo.index === num);
+  todoItem.completed = status;
+  todos[num - 1] = todoItem;
+  this.updateStorage(todos);
+}
+
+removeCompleted =() => {
+  const todos = TodoList.getStoredTodos();
+  const uncompletedTodos = todos.filter((todo) => !todo.completed);
+  this.updateStorage(uncompletedTodos);
+  const sortedTodo = this.sortTodos();
+  localStorage.setItem('todos', JSON.stringify(sortedTodo));
+}
 }
 
 export default TodoList;

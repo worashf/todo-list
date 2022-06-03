@@ -1,8 +1,8 @@
 import '@fortawesome/fontawesome-free/js/all.js';
 import './style.css';
-import { appendAllTodos, saveNewTodo } from './modules/DomUtils.js';
+import { appendAllTodos, saveNewTodo, removeAllCompleted } from './modules/DomUtils.js';
 import TodoList from './modules/TodoList.js';
-import { addForm, todoInput } from './modules/Selector.js';
+import { addForm, todoInput, clearBtn } from './modules/Selector.js';
 
 window.onload = () => {
   const todos = TodoList.getStoredTodos();
@@ -16,4 +16,8 @@ addForm.addEventListener('submit', (e) => {
     saveNewTodo(value);
     todoInput.value = '';
   }
+});
+
+clearBtn.addEventListener('click', () => {
+  removeAllCompleted();
 });
