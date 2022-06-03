@@ -17,7 +17,10 @@ To get a local copy up and running, follow these simple steps:
 
 ## Usage
 
-First copy this repo and clone it on your machine using this [link](ghttps://github.com/worashf/todo-list).
+1. First copy this repo and clone it on your machine using this [link](ghttps://github.com/worashf/todo-list).
+2. run 'npm install' to install the dependecies
+3. run 'npm start' to run the project
+4. run 'npm run build' to build the project
 
 # Authors
 
@@ -32,6 +35,8 @@ First copy this repo and clone it on your machine using this [link](ghttps://git
 # Contributing
 
 # Live Demo
+
+https://worashf.github.io/todo-list/
 
 # Show your support
 
