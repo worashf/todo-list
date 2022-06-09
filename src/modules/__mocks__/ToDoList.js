@@ -1,4 +1,3 @@
-
 const todos = [{ index: 1, description: 'adas', completed: false }, { index: 2, description: 'secondBooks', completed: false }, { index: 3, description: 'asdadasd', completed: false }];
 
 class TodoList {
@@ -7,8 +6,6 @@ class TodoList {
     this.description = description;
     this.completed = completed;
   }
-
-
 
   updateStorage =(todos) => {
     localStorage.setItem('todos', JSON.stringify(todos));
@@ -34,29 +31,28 @@ sortTodos =() => {
 }
 
   addNewTodo =(description) => {
- 
     const index = todos.length;
     const completed = false;
     const todo = new TodoList(index + 1, description, completed);
 
     todos.push(todo);
- 
+
     return todos.length;
   }
+
   addTodo =(description) => {
- 
     const index = todos.length;
     const completed = false;
     const todo = new TodoList(index + 1, description, completed);
 
     todos.push(todo);
- 
+
     return todo;
   }
+
   deleteTodo =(num) => {
-   
     todos.splice((num - 1), 1);
- 
+
     return todos.length;
   }
 
