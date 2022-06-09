@@ -3,7 +3,7 @@ const TodoList = require('./__mocks__/ToDoList.js');
 
 const todolist = new TodoList();
 
-describe('addition test', () => {
+describe(' Test todolist functions', () => {
   test('Addition', () => {
     // arrage and act
     const foourthTdo = todolist.addNewTodo('micah');
@@ -15,18 +15,28 @@ describe('addition test', () => {
     expect(fifthTodo).toBe(5);
     expect(todo.description).toBe('new todo');
   });
-});
-
-describe('deletion test', () => {
   test('Deletion', () => {
     expect(todolist.deleteTodo(2)).toBe(5);
     expect(todolist.deleteTodo(1)).toBe(4);
   });
-});
-
-describe('todo list completed status test', () => {
   test('completed  => false', () => {
     const todo = todolist.addTodo('best done');
     expect(todo.completed).toBeFalsy();
   });
+  test("update todo description => new description",()=>{
+     // arrage 
+     let todoDescription = "new description"
+     console.log(todoDescription)
+     //act
+     let updatedDescription = todolist.editDescription(1,todoDescription);
+     console.log(updatedDescription)
+     //assert
+     expect(updatedDescription).toBe(todoDescription)
+
+
+  })
+
 });
+
+
+
