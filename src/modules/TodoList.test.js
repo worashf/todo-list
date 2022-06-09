@@ -1,5 +1,5 @@
 jest.mock('./TodoList.js');
-const TodoList = require('./TodoList.js');
+const TodoList = require('./__mocks__/ToDoList');
 
 const todolist = new TodoList();
 
