@@ -1,4 +1,4 @@
-// import Todo from '../Todo.js';
+// import Todo from '../Todo.js'; mocked
 const todos = [{ index: 1, description: 'adas', completed: false }, { index: 2, description: 'secondBooks', completed: false }, { index: 3, description: 'asdadasd', completed: false }];
 
 class TodoList {
@@ -85,5 +85,4 @@ removeCompleted =() => {
 }
 }
 
-export default TodoList;
 module.exports = TodoList;
