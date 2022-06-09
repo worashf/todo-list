@@ -57,24 +57,23 @@ sortTodos =() => {
   }
 
 editDescription=(index, description) => {
-let updatedDescription = todos[index-1].description =description
+  todos[index - 1].description = description;
+  const updatedDescription = todos[index - 1].description;
 
-  return updatedDescription
+  return updatedDescription;
 }
 
 changeTodoStatus =(num, status) => {
+  todos[num - 1].completed = status;
+  const updateStatus = todos[num - 1].completed;
 
-  let updateStatus = todos[num-1].completed =status
-
-  return updateStatus
+  return updateStatus;
 }
 
 removeCompleted =() => {
-  const todos = TodoList.getStoredTodos();
   const uncompletedTodos = todos.filter((todo) => !todo.completed);
-  this.updateStorage(uncompletedTodos);
-  const sortedTodo = this.sortTodos();
-  localStorage.setItem('todos', JSON.stringify(sortedTodo));
+
+  return uncompletedTodos.length;
 }
 }
 
