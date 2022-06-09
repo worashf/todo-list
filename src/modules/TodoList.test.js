@@ -19,8 +19,16 @@ describe('addition test', () => {
 
 describe('deletion test', () => {
   test('Deletion', () => {
-    
+
     expect(todolist.deleteTodo(2)).toBe(5);
     expect(todolist.deleteTodo(1)).toBe(4);
+  });
+});
+
+describe('todo list completed status test', () => {
+  test('completed  => false', () => {
+     let todo = todolist.addTodo("best done")
+    expect(todo.completed).toBeFalsy();
+
   });
 });
