@@ -43,7 +43,16 @@ sortTodos =() => {
  
     return todos.length;
   }
+  addTodo =(description) => {
+ 
+    const index = todos.length;
+    const completed = false;
+    const todo = new TodoList(index + 1, description, completed);
 
+    todos.push(todo);
+ 
+    return todo;
+  }
   deleteTodo =(num) => {
    
     todos.splice((num - 1), 1);
