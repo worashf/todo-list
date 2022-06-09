@@ -1,4 +1,5 @@
 // import Todo from '../Todo.js';
+const todos = [{ index: 1, description: 'adas', completed: false }, { index: 2, description: 'secondBooks', completed: false }, { index: 3, description: 'asdadasd', completed: false }];
 
 class TodoList {
   constructor(index, description, completed) {
@@ -7,10 +8,9 @@ class TodoList {
     this.completed = completed;
   }
 
- static getStoredTodos =() => {
-   const todos = [{ index: 1, description: "adas", completed: false}, {index: 2, description: "secondBooks", completed: false}, {index: 3, description: "asdadasd", completed: false}];
-   return todos;
- }
+  //  static getStoredTodos =() => {
+  //    return todos;
+  //  }
 
   updateStorage =(todos) => {
     localStorage.setItem('todos', JSON.stringify(todos));
@@ -36,27 +36,27 @@ sortTodos =() => {
 }
 
   addNewTodo =(description) => {
-    const index = TodoList.getStoredTodos().length;
+    // const index = TodoList.getStoredTodos().length;mocked
+    const index = todos.length;
     const completed = false;
     const todo = new TodoList(index + 1, description, completed);
-    // this.storeTodos(todo);
-    // storeTodos =(todo) => {
-    const todos = TodoList.getStoredTodos();
+    // this.storeTodos(todo);mocked
+    // storeTodos =(todo) => {mocked
+    // const todos = TodoList.getStoredTodos();mocked
     todos.push(todo);
-    // this.updateStorage(todos);
-    // }
+    // this.updateStorage(todos);mocked
     return todos.length;
   }
 
-deleteTodo =(num) => {
-  const todos = TodoList.getStoredTodos();
-
-  const filteredTodo = todos.filter((todo) => todo.index !== num);
-
-  localStorage.setItem('todos', JSON.stringify(filteredTodo));
-  const sortedTodo = this.sortTodos();
-  localStorage.setItem('todos', JSON.stringify(sortedTodo));
-}
+  deleteTodo =(num) => {
+    // const todos = TodoList.getStoredTodos(); mocked
+    // const filteredTodo = todos.filter((todo) => todo.index !== num); mocked
+    todos.splice((num - 1), 1);
+    // localStorage.setItem('todos', JSON.stringify(filteredTodo)); mocked
+    // const sortedTodo = this.sortTodos();
+    // localStorage.setItem('todos', JSON.stringify(sortedTodo)); mocked
+    return todos.length;
+  }
 
 editDescription=(index, description) => {
   const todos = TodoList.getStoredTodos();
