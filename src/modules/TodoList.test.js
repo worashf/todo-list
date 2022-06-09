@@ -35,6 +35,18 @@ describe(' Test todolist functions', () => {
 
 
   })
+  test("change todo status form completed to uncompleted and vise versa",()=>{
+    //arrage 
+   let completed1 =true;
+   let completed2= false;
+   //act
+   let todoStatus1 =todolist.changeTodoStatus(1,completed1);
+   let todoStatus2= todolist.changeTodoStatus(2,completed2)
+   expect(todoStatus1).toBeTruthy()
+   expect(todoStatus2).toBeFalsy()
+
+
+  })
 
 });
 
