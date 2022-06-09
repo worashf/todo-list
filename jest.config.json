@@ -1,0 +1,4 @@
+{"collectCoverageFrom": [
+  "**/src/modules/Selector.js",
+  "**/src/modules/Todo.js"
+]}
