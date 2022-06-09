@@ -5,14 +5,22 @@ const todolist = new TodoList();
 
 describe('addition test', () => {
   test('Addition', () => {
-    expect(todolist.addNewTodo('micah')).toBe(4);
-    expect(todolist.addNewTodo('genesis')).toBe(5);
+    //arrage and act
+    let  foourthTdo =todolist.addNewTodo('micah');
+    let fifthTodo = todolist.addNewTodo('genesis')
+    let sixDescription = "new todo"
+    let sixTodo =  todolist.addNewTodo(sixDescription)
+    //assert
+    expect(foourthTdo).toBe(4);
+    expect(fifthTodo).toBe(5);
+    expect(sixDescription).toBe("new todo");
   });
 });
 
 describe('deletion test', () => {
   test('Deletion', () => {
-    expect(todolist.deleteTodo(2)).toBe(4);
-    expect(todolist.deleteTodo(1)).toBe(3);
+    
+    expect(todolist.deleteTodo(2)).toBe(5);
+    expect(todolist.deleteTodo(1)).toBe(4);
   });
 });
