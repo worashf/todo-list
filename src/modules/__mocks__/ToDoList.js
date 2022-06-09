@@ -57,21 +57,16 @@ sortTodos =() => {
   }
 
 editDescription=(index, description) => {
-  const todos = TodoList.getStoredTodos();
+let updatedDescription = todos[index-1].description =description
 
-  const todoItem = todos.find((todo) => todo.index === index);
-  todoItem.description = description;
-  todos[index - 1] = todoItem;
-  this.updateStorage(todos);
+  return updatedDescription
 }
 
 changeTodoStatus =(num, status) => {
-  const todos = TodoList.getStoredTodos();
 
-  const todoItem = todos.find((todo) => todo.index === num);
-  todoItem.completed = status;
-  todos[num - 1] = todoItem;
-  this.updateStorage(todos);
+  let updateStatus = todos[index-1].completed =status
+
+  return updateStatus
 }
 
 removeCompleted =() => {
