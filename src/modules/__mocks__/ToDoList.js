@@ -1,4 +1,4 @@
-const todos = [{ index: 1, description: 'adas', completed: false }, { index: 2, description: 'secondBooks', completed: false }, { index: 3, description: 'asdadasd', completed: false }];
+const todos = [{ index: 1, description: 'adas', completed: false }, { index: 2, description: 'secondBooks', completed: true }, { index: 3, description: 'asdadasd', completed: false }];
 
 class TodoList {
   constructor(index, description, completed) {
@@ -57,29 +57,23 @@ sortTodos =() => {
   }
 
 editDescription=(index, description) => {
-  const todos = TodoList.getStoredTodos();
+  todos[index - 1].description = description;
+  const updatedDescription = todos[index - 1].description;
 
-  const todoItem = todos.find((todo) => todo.index === index);
-  todoItem.description = description;
-  todos[index - 1] = todoItem;
-  this.updateStorage(todos);
+  return updatedDescription;
 }
 
 changeTodoStatus =(num, status) => {
-  const todos = TodoList.getStoredTodos();
+  todos[num - 1].completed = status;
+  const updateStatus = todos[num - 1].completed;
 
-  const todoItem = todos.find((todo) => todo.index === num);
-  todoItem.completed = status;
-  todos[num - 1] = todoItem;
-  this.updateStorage(todos);
+  return updateStatus;
 }
 
 removeCompleted =() => {
-  const todos = TodoList.getStoredTodos();
   const uncompletedTodos = todos.filter((todo) => !todo.completed);
-  this.updateStorage(uncompletedTodos);
-  const sortedTodo = this.sortTodos();
-  localStorage.setItem('todos', JSON.stringify(sortedTodo));
+
+  return uncompletedTodos.length;
 }
 }
 
