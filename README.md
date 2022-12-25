@@ -3,7 +3,7 @@
 
 # todo-list
 
-This project is built by html5 and css3, Javascript es6,webpack use localstorage to store todo lists for learning purpose. The project consist in a To do list web app. The user can load tasks to the list, move the position of the tasks, mark it as complete and clean the list using the clean button.
+This project is built to learn  html5 and css3, Javascript es6,webpack use localstorage to store todo lists. The project consist in a To do list web app. The user can load tasks to the list, move the position of the tasks, mark it as complete and clean the list using the clean button.
 
 # Built With
 
