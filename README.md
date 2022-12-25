@@ -34,9 +34,9 @@ To get a local copy up and running, follow these simple steps:
 
 # Contributing
 
-# Live Demo
 
-https://worashf.github.io/todo-list/dist/
+
+[Live Demo](https://worashf.github.io/todo-list/)
 
 # Show your support
 
