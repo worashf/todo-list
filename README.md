@@ -1,15 +1,19 @@
-# todo-list
 
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This project is built by html5 and css3, Javascript es6,webpack use localstorage to store todo lists.
+# todo-list
+
+This project is built by html5 and css3, Javascript es6,webpack use localstorage to store todo lists for learning purpose. The project consist in a To do list web app. The user can load tasks to the list, move the position of the tasks, mark it as complete and clean the list using the clean button.
 
 # Built With
 
 - Major Languages
-  - HTML
-  - CSS
+  - HTML5
+  - CSS3
   - JavaScript es6
+  - Webpack
+
+# [ Live Demo](https://worashf.github.io/todo-list/)
 
 # Getting Started
 
@@ -28,15 +32,17 @@ To get a local copy up and running, follow these simple steps:
 
 👤 **Worash Abocherugn**
 
-- GitHub: [@githubhandle](https://github.com/worashf)
-- Twitter: [@twitterhandle](https://twitter.com/WorashAboche)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/worash-abocherugn-a02219154/)
+- GitHub: [@Worashf](https://github.com/worashf)
+- Twitter: [@WorashAbo](https://twitter.com/WorashAboche)
+- LinkedIn: [Worash abocherugn](https://www.linkedin.com/in/worash-abocherugn-a02219154/)
 
 # Contributing
 
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the issues page.
 
 
-[Live Demo](https://worashf.github.io/todo-list/)
 
 # Show your support
 
@@ -44,4 +50,5 @@ Kindly give a :hearts: if you like this.
 
 # Acknowledgement
 
-- We expressed my gratitude for everyone.
+- [Microverse](https://www.microverse.org/)
+- [Webpack](https://webpack.js.org/)
